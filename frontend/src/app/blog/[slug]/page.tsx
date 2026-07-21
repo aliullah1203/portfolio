@@ -16,7 +16,7 @@ const reactionOptions = [
 ];
 
 function getApiBaseUrl() {
-  const configured = process.env.NEXT_PUBLIC_API_URL?.trim();
+  const configured = 'https://portfolio-6i9r.onrender.com';
   if (configured) {
     return configured.replace(/\/$/, '');
   }

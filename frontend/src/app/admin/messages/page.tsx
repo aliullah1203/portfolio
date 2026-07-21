@@ -28,7 +28,7 @@ export default function AdminMessagesPage() {
 
   const fetchMessages = async () => {
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const token = typeof window !== 'undefined'
         ? window.localStorage.getItem('portfolio-admin-token') || window.localStorage.getItem('admin-token')
         : null;
@@ -55,7 +55,7 @@ export default function AdminMessagesPage() {
     if (!confirm('Are you sure you want to delete this message?')) return;
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const token = typeof window !== 'undefined'
         ? window.localStorage.getItem('portfolio-admin-token') || window.localStorage.getItem('admin-token')
         : null;

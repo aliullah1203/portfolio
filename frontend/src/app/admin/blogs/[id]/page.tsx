@@ -59,7 +59,7 @@ export default function EditBlogPage() {
 
   const fetchBlog = async () => {
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const response = await fetch(`${API_URL}/api/blogs`);
       const blogs = await response.json();
       const blog = (Array.isArray(blogs) ? blogs : []).find((item) => (item._id || item.id) === id);
@@ -114,7 +114,7 @@ export default function EditBlogPage() {
     setError('');
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const token = window.localStorage.getItem('portfolio-admin-token') || window.localStorage.getItem('admin-token') || '';
       const payload = {
         ...formData,

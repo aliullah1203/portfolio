@@ -45,7 +45,7 @@ export default function EditProjectPage() {
 
   const fetchProject = async () => {
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const response = await fetch(`${API_URL}/api/projects`);
       const projects = await response.json();
       const project = (Array.isArray(projects) ? projects : []).find(p => (p._id || p.id) === id);
@@ -91,7 +91,7 @@ export default function EditProjectPage() {
     setError('');
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const token = getStoredToken();
       const payload = {
         ...formData,

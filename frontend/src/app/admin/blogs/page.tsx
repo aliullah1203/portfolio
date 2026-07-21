@@ -27,7 +27,7 @@ export default function AdminBlogsPage() {
 
   const fetchBlogs = async () => {
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const response = await fetch(`${API_URL}/api/blogs`);
       const data = await response.json();
       setBlogs(Array.isArray(data) ? data : []);
@@ -42,7 +42,7 @@ export default function AdminBlogsPage() {
     if (!confirm('Are you sure you want to delete this blog?')) return;
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const token = window.localStorage.getItem('portfolio-admin-token') || window.localStorage.getItem('admin-token') || '';
       const response = await fetch(`${API_URL}/api/admin/blogs/${id}`, {
         method: 'DELETE',

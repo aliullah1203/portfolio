@@ -48,7 +48,7 @@ export default function CreateProjectPage() {
     setError('');
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const token = getStoredToken();
       const payload = {
         ...formData,

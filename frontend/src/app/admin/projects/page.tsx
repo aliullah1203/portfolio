@@ -27,7 +27,7 @@ export default function AdminProjectsPage() {
 
   const fetchProjects = async () => {
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const response = await fetch(`${API_URL}/api/projects`);
       const data = await response.json();
       setProjects(Array.isArray(data) ? data : []);
@@ -47,7 +47,7 @@ export default function AdminProjectsPage() {
     if (!confirm('Are you sure you want to delete this project?')) return;
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const API_URL = 'https://portfolio-6i9r.onrender.com';
       const token = getStoredToken();
       const response = await fetch(`${API_URL}/api/admin/projects/${id}`, {
         method: 'DELETE',

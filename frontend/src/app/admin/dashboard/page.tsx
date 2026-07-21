@@ -20,7 +20,7 @@ export default function AdminDashboardPage() {
 
     const fetchStats = async () => {
       try {
-        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+        const API_URL = 'https://portfolio-6i9r.onrender.com';
         
         const token = localStorage.getItem('portfolio-admin-token') || localStorage.getItem('admin-token') || '';
         const [blogsRes, projectsRes, messagesRes] = await Promise.all([

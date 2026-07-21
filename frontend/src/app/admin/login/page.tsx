@@ -7,7 +7,7 @@ import { useAuth } from '@/shared/context/AuthContext';
 
 const AUTH_KEY = 'portfolio-admin-auth';
 const TOKEN_KEY = 'portfolio-admin-token';
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+const API_URL = 'https://portfolio-6i9r.onrender.com';
 
 export default function AdminLoginPage() {
   const router = useRouter();
