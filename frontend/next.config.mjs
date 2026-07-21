@@ -2,6 +2,7 @@ import path from 'path';
 
 const nextConfig = {
   reactStrictMode: true,
+  typedRoutes: true,
   images: {
     remotePatterns: [
       {
@@ -9,9 +10,6 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-  },
-  experimental: {
-    typedRoutes: true,
   },
   sassOptions: {
     includePaths: [path.join(process.cwd(), 'styles')],
