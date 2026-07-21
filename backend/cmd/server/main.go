@@ -24,7 +24,16 @@ func main() {
 	router.Use(gin.Logger(), gin.Recovery())
 	router.Use(func(c *gin.Context) {
 		origin := c.GetHeader("Origin")
-		if origin != "" && (origin == "http://localhost:3000" || origin == "http://localhost:3001" || origin == "http://127.0.0.1:3000" || origin == "http://127.0.0.1:3001" || origin == "http://0.0.0.0:3000" || origin == "http://0.0.0.0:3001" || len(origin) >= 21 && origin[:21] == "http://localhost:300" || len(origin) >= 20 && origin[:20] == "http://127.0.0.1:300" || len(origin) >= 18 && origin[:18] == "http://0.0.0.0:300") {
+		allowedOrigins := map[string]bool{
+			"http://localhost:3000": true,
+			"http://localhost:3001": true,
+			"http://127.0.0.1:3000": true,
+			"http://127.0.0.1:3001": true,
+			"http://0.0.0.0:3000":   true,
+			"http://0.0.0.0:3001":   true,
+		}
+		// Allow all vercel.app domains
+		if len(origin) > 0 && (allowedOrigins[origin] || (len(origin) > 11 && origin[len(origin)-11:] == ".vercel.app")) {
 			c.Writer.Header().Set("Access-Control-Allow-Origin", origin)
 			c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
 		}
