@@ -16,20 +16,11 @@ const reactionOptions = [
 ];
 
 function getApiBaseUrl() {
-  const configured = 'https://portfolio-6i9r.onrender.com';
-  if (configured) {
-    return configured.replace(/\/$/, '');
+  const envUrl = 'https://portfolio-6i9r.onrender.com';
+  if (envUrl) {
+    return envUrl.replace(/\/$/, '');
   }
-
-  if (typeof window !== 'undefined') {
-    const host = window.location.hostname;
-    if (host === '0.0.0.0' || host === '::' || host === '[::]') {
-      return 'http://localhost:8080';
-    }
-    return `http://${host}:8080`;
-  }
-
-  return 'http://localhost:8080';
+  return '';
 }
 
 export default function BlogPostPage() {

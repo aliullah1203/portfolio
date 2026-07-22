@@ -30,7 +30,7 @@ export function ContactSection() {
     setSuccess(false);
 
     try {
-      const response = await fetch('http://localhost:8080/api/contact', {
+      const response = await fetch('https://portfolio-6i9r.onrender.com' + '/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
