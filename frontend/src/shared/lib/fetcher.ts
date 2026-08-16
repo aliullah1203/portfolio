@@ -1,8 +1,20 @@
 import axios from 'axios';
 
 function getApiBaseUrl(): string {
-  const envUrl = process.env.NEXT_PUBLIC_API_URL || 'https://portfolio-6i9r.onrender.com';
-  return envUrl.replace(/\/$/, '');
+  const rawEnv = process.env.NEXT_PUBLIC_API_URL;
+
+  // In development prefer the explicit env or localhost default.
+  if (process.env.NODE_ENV === 'development') {
+    const envUrl = rawEnv || 'http://localhost:8080';
+    return envUrl.replace(/\/$/, '');
+  }
+
+  // In production, never use a localhost or plain http URL (prevents mixed-content).
+  if (!rawEnv || rawEnv.includes('localhost') || rawEnv.startsWith('http://')) {
+    return 'https://portfolio-6i9r.onrender.com';
+  }
+
+  return rawEnv.replace(/\/$/, '');
 }
 
 const client = axios.create({
