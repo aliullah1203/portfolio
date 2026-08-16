@@ -13,8 +13,7 @@ export function FeaturedProjectsSection() {
   useEffect(() => {
     const fetchFeaturedProjects = async () => {
       try {
-        const API_URL = 'https://portfolio-6i9r.onrender.com';
-        const response = await fetch(`${API_URL}/api/projects/featured`);
+        const response = await fetch(`/api/projects/featured`);
         if (!response.ok) {
           throw new Error('Failed to load featured projects');
         }

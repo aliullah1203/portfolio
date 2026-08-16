@@ -1,7 +1,12 @@
 import axios from 'axios';
 
+function getApiBaseUrl(): string {
+  const envUrl = process.env.NEXT_PUBLIC_API_URL || 'https://portfolio-6i9r.onrender.com';
+  return envUrl.replace(/\/$/, '');
+}
+
 const client = axios.create({
-  baseURL: 'https://portfolio-6i9r.onrender.com',
+  baseURL: getApiBaseUrl(),
   headers: {
     'Content-Type': 'application/json',
   },
@@ -11,3 +16,5 @@ export async function fetcher<T>(url: string) {
   const response = await client.get<T>(url);
   return response.data;
 }
+
+export { getApiBaseUrl };

@@ -7,7 +7,7 @@ import { BlogPost } from '@/shared/types';
 import { ArrowRight } from 'lucide-react';
 
 function getApiBaseUrl() {
-  const envUrl = 'https://portfolio-6i9r.onrender.com';
+  const envUrl = process.env.NEXT_PUBLIC_API_URL || 'https://portfolio-6i9r.onrender.com';
   if (envUrl) {
     return envUrl.replace(/\/$/, '');
   }
@@ -37,8 +37,7 @@ export function BlogSection() {
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        const API_URL = getApiBaseUrl();
-        const response = await fetch(`${API_URL}/api/blogs`, {
+        const response = await fetch(`/api/blogs`, {
           method: 'GET',
           headers: { Accept: 'application/json' },
           cache: 'no-store',

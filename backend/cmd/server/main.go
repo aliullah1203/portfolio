@@ -25,12 +25,17 @@ func main() {
 	router.Use(func(c *gin.Context) {
 		origin := c.GetHeader("Origin")
 		allowedOrigins := map[string]bool{
-			"http://localhost:3000": true,
-			"http://localhost:3001": true,
-			"http://127.0.0.1:3000": true,
-			"http://127.0.0.1:3001": true,
-			"http://0.0.0.0:3000":   true,
-			"http://0.0.0.0:3001":   true,
+			"http://localhost:3000":                            true,
+			"http://localhost:3001":                            true,
+			"http://localhost:3002":                            true,
+			"http://127.0.0.1:3000":                            true,
+			"http://127.0.0.1:3001":                            true,
+			"http://127.0.0.1:3002":                            true,
+			"http://0.0.0.0:3000":                              true,
+			"http://0.0.0.0:3001":                              true,
+			"http://0.0.0.0:3002":                              true,
+			"https://portfolio-6ghej4rri-aliullah.vercel.app":  true,
+			"https://portfolio-6ghej4rri-aliullah.vercel.app/": true,
 		}
 		// Allow all vercel.app domains
 		if len(origin) > 0 && (allowedOrigins[origin] || (len(origin) > 11 && origin[len(origin)-11:] == ".vercel.app")) {
