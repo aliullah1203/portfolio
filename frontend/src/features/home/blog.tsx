@@ -6,13 +6,7 @@ import { Card } from '@/shared/ui/card';
 import { BlogPost } from '@/shared/types';
 import { ArrowRight } from 'lucide-react';
 
-function getApiBaseUrl() {
-  const envUrl = process.env.NEXT_PUBLIC_API_URL || 'https://portfolio-6i9r.onrender.com';
-  if (envUrl) {
-    return envUrl.replace(/\/$/, '');
-  }
-  return '';
-}
+import { getApiBaseUrl } from '@/shared/lib/fetcher';
 
 function formatDate(value?: string) {
   if (!value) return 'Recently published';
