@@ -16,23 +16,23 @@ export function TestimonialsSection() {
     <section id="testimonials">
       <div className="mx-auto max-w-[1440px] space-y-8">
         <div>
-          <p className="text-sm uppercase tracking-[0.35em] text-brand-300">Testimonials</p>
-          <h2 className="text-4xl font-semibold text-white sm:text-5xl">What People Say</h2>
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent-400">Testimonials</p>
+          <h2 className="text-4xl font-bold text-white sm:text-5xl">What people say</h2>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
           {testimonials.map((item) => (
             <div
               key={item.author}
-              className="glass-card p-8"
+              className="rounded-lg border border-neutral-800 bg-neutral-900/40 p-8"
             >
-              <p className="text-lg leading-8 text-slate-300">“{item.quote}”</p>
-              <div className="mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-400">
+              <p className="text-lg leading-8 text-neutral-300">“{item.quote}”</p>
+              <div className="mt-6 flex items-center justify-between gap-4 border-t border-neutral-800 pt-6 text-sm text-neutral-400">
                 <div>
                   <p className="font-semibold text-white">{item.author}</p>
                   <p>{item.role}</p>
                 </div>
-                <div className="flex gap-1 text-brand-400">
+                <div className="flex gap-1 text-accent-400">
                   {'★'.repeat(5)}
                 </div>
               </div>

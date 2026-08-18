@@ -9,24 +9,39 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: '#f8f4ff',
-          100: '#f0e7ff',
-          200: '#dcc2ff',
-          300: '#b991ff',
-          400: '#8f51ff',
-          500: '#7c3aed',
-          600: '#6d28d9',
-          700: '#5b21b6',
-          800: '#4c1d95',
-          900: '#37175f',
+        neutral: {
+          50: '#f9fafb',
+          100: '#f3f4f6',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#9ca3af',
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
+          950: '#0f0f12',
+        },
+        accent: {
+          50: '#f0f4ff',
+          100: '#e6edff',
+          200: '#cddaff',
+          300: '#a8baff',
+          400: '#7c89ff',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
         },
       },
       boxShadow: {
-        glow: '0 25px 100px rgba(139,92,246,0.25)',
+        subtle: '0 1px 3px rgba(0, 0, 0, 0.1)',
+        soft: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        base: '0 1px 2px rgba(0, 0, 0, 0.05)',
       },
-      backgroundImage: {
-        'hero-grid': 'radial-gradient(circle at 15% 20%, rgba(167,139,250,0.15), transparent 18%), radial-gradient(circle at 85% 30%, rgba(59,130,246,0.18), transparent 16%), radial-gradient(circle at 50% 90%, rgba(168,85,247,0.1), transparent 20%)',
+      borderRadius: {
+        DEFAULT: '0.5rem',
       },
     },
   },

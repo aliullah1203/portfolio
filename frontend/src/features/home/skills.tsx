@@ -1,14 +1,14 @@
 import { Card } from '@/shared/ui/card';
-import { ArrowUpRight, Atom, Cloud, Code2, Database, Github, Layout, Layers, Server, Sparkles, Terminal, Zap } from 'lucide-react';
+import { Code2, Database } from 'lucide-react';
 
 const skillGroups = [
   {
     title: 'Languages',
-    skills: ['C', 'C++', 'JAVA' ,'Go', 'JavaScript', 'TypeScript'],
+    skills: ['C', 'C++', 'Java', 'Go', 'JavaScript', 'TypeScript'],
   },
   {
     title: 'Frontend',
-    skills: ['HTML', 'CSS', 'React.js', 'Next.js', 'TanStack'],
+    skills: ['HTML', 'CSS', 'React.js', 'Next.js', 'TanStack Query', 'Tailwind CSS'],
   },
   {
     title: 'Backend',
@@ -16,63 +16,33 @@ const skillGroups = [
   },
   {
     title: 'Databases & Tools',
-    skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Git', 'GitHub', 'Postman'],
-  },
-  {
-    title: 'Computer Science',
-    skills: ['CP', 'OOP', 'Operating Systems'],
+    skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Git / GitHub', 'Postman', 'Docker'],
   },
 ];
-
-const skillIconMap: Record<string, typeof Atom> = {
-  Go: Terminal,
-  JavaScript: Code2,
-  TypeScript: Code2,
-  'React.js': Atom,
-  'Next.js': Layout,
-  TanStack: Layers,
-  'Node.js': Server,
-  'Express.js': Zap,
-  GraphQL: Sparkles,
-  MongoDB: Database,
-  MySQL: Database,
-  PostgreSQL: Database,
-  Git: Github,
-  GitHub: Github,
-  Postman: ArrowUpRight,
-  CP: Code2,
-  OOP: Layers,
-  'Operating Systems': Cloud,
-};
 
 export function SkillsSection() {
   return (
     <section id="skills">
-      <div className="mx-auto max-w-[1440px] space-y-10">
+      <div className="mx-auto max-w-[1440px] space-y-12">
         <div className="space-y-3">
-          <p className="text-sm uppercase tracking-[0.35em] text-brand-300">Skills</p>
-          <h2 className="text-4xl font-semibold text-white sm:text-5xl">Technologies I Work With</h2>
+          <p className="text-sm font-semibold text-accent-400 uppercase tracking-wide">Skills</p>
+          <h2 className="text-4xl font-bold text-white sm:text-5xl">Technologies & Tools</h2>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
           {skillGroups.map((group) => (
-            <Card key={group.title} className="space-y-4">
-              <h3 className="text-lg font-semibold text-white">{group.title}</h3>
-              <div className="grid gap-2">
-                {group.skills.map((skill) => {
-                  const Icon = skillIconMap[skill] ?? Code2;
-                  return (
-                    <div
-                      key={skill}
-                      className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/80 px-4 py-3 text-sm text-slate-200"
-                    >
-                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-slate-900/80 text-brand-300">
-                        <Icon size={16} />
-                      </span>
-                      <span>{skill}</span>
-                    </div>
-                  );
-                })}
+            <Card key={group.title} className="space-y-4 p-6" interactive={false}>
+              <h3 className="text-base font-semibold text-white">{group.title}</h3>
+              <div className="space-y-2">
+                {group.skills.map((skill) => (
+                  <div
+                    key={skill}
+                    className="flex items-center gap-3 rounded-md border border-neutral-700/50 bg-neutral-900/30 px-3 py-2 text-sm text-neutral-300 hover:border-neutral-600 hover:bg-neutral-900/50 transition"
+                  >
+                    <Code2 size={14} className="text-accent-500 flex-shrink-0" />
+                    <span>{skill}</span>
+                  </div>
+                ))}
               </div>
             </Card>
           ))}
