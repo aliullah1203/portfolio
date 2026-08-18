@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"strings"
 
 	"portfolio-backend/config"
 	"portfolio-backend/internal/auth"
@@ -11,6 +12,37 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
+
+func isAllowedOrigin(origin string) bool {
+	if origin == "" {
+		return false
+	}
+
+	normalizedOrigin := strings.TrimRight(origin, "/")
+	if normalizedOrigin == "" {
+		return false
+	}
+
+	allowedOrigins := map[string]bool{
+		"http://localhost:3000":                           true,
+		"http://localhost:3001":                           true,
+		"http://localhost:3002":                           true,
+		"http://127.0.0.1:3000":                           true,
+		"http://127.0.0.1:3001":                           true,
+		"http://127.0.0.1:3002":                           true,
+		"http://0.0.0.0:3000":                             true,
+		"http://0.0.0.0:3001":                             true,
+		"http://0.0.0.0:3002":                             true,
+		"https://portfolio-6ghej4rri-aliullah.vercel.app": true,
+		"https://portfolio.aliullah0301.workers.dev":      true,
+	}
+
+	if allowedOrigins[normalizedOrigin] {
+		return true
+	}
+
+	return strings.HasSuffix(normalizedOrigin, ".vercel.app") || strings.HasSuffix(normalizedOrigin, ".workers.dev") || strings.HasSuffix(normalizedOrigin, ".pages.dev")
+}
 
 func main() {
 	config.Load()
@@ -24,21 +56,7 @@ func main() {
 	router.Use(gin.Logger(), gin.Recovery())
 	router.Use(func(c *gin.Context) {
 		origin := c.GetHeader("Origin")
-		allowedOrigins := map[string]bool{
-			"http://localhost:3000":                            true,
-			"http://localhost:3001":                            true,
-			"http://localhost:3002":                            true,
-			"http://127.0.0.1:3000":                            true,
-			"http://127.0.0.1:3001":                            true,
-			"http://127.0.0.1:3002":                            true,
-			"http://0.0.0.0:3000":                              true,
-			"http://0.0.0.0:3001":                              true,
-			"http://0.0.0.0:3002":                              true,
-			"https://portfolio-6ghej4rri-aliullah.vercel.app":  true,
-			"https://portfolio-6ghej4rri-aliullah.vercel.app/": true,
-		}
-		// Allow all vercel.app domains
-		if len(origin) > 0 && (allowedOrigins[origin] || (len(origin) > 11 && origin[len(origin)-11:] == ".vercel.app")) {
+		if isAllowedOrigin(origin) {
 			c.Writer.Header().Set("Access-Control-Allow-Origin", origin)
 			c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
 		}

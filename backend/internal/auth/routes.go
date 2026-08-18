@@ -2,6 +2,7 @@ package auth
 
 import (
 	"database/sql"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,6 +10,32 @@ import (
 // RefreshTokenRequest represents the payload for token refresh
 type RefreshTokenRequest struct {
 	RefreshToken string `json:"refresh_token"`
+}
+
+func isAllowedOrigin(origin string) bool {
+	if origin == "" {
+		return false
+	}
+
+	normalizedOrigin := strings.TrimRight(origin, "/")
+	if normalizedOrigin == "" {
+		return false
+	}
+
+	allowedOrigins := map[string]bool{
+		"http://localhost:3000":                           true,
+		"http://localhost:3001":                           true,
+		"http://127.0.0.1:3000":                           true,
+		"http://127.0.0.1:3001":                           true,
+		"https://portfolio-6ghej4rri-aliullah.vercel.app": true,
+		"https://portfolio.aliullah0301.workers.dev":      true,
+	}
+
+	if allowedOrigins[normalizedOrigin] {
+		return true
+	}
+
+	return strings.HasSuffix(normalizedOrigin, ".vercel.app") || strings.HasSuffix(normalizedOrigin, ".workers.dev") || strings.HasSuffix(normalizedOrigin, ".pages.dev")
 }
 
 func RegisterRoutes(router *gin.RouterGroup, db *sql.DB) {
@@ -31,7 +58,7 @@ func RegisterRoutes(router *gin.RouterGroup, db *sql.DB) {
 
 	optionsHandler := func(c *gin.Context) {
 		origin := c.GetHeader("Origin")
-		if origin == "http://localhost:3000" || origin == "http://localhost:3001" || origin == "http://127.0.0.1:3000" || origin == "http://127.0.0.1:3001" {
+		if isAllowedOrigin(origin) {
 			c.Writer.Header().Set("Access-Control-Allow-Origin", origin)
 			c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
 		}
