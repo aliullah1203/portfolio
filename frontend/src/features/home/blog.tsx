@@ -6,8 +6,6 @@ import { Card } from '@/shared/ui/card';
 import { BlogPost } from '@/shared/types';
 import { ArrowRight } from 'lucide-react';
 
-import { getApiBaseUrl } from '@/shared/lib/fetcher';
-
 function formatDate(value?: string) {
   if (!value) return 'Recently published';
 
@@ -23,6 +21,8 @@ function formatDate(value?: string) {
   }).format(parsedDate);
 }
 
+const API_BASE = 'https://portfolio-6i9r.onrender.com';
+
 export function BlogSection() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +31,7 @@ export function BlogSection() {
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        const response = await fetch(`/api/blogs`, {
+        const response = await fetch(`${API_BASE}/api/blogs`, {
           method: 'GET',
           headers: { Accept: 'application/json' },
           cache: 'no-store',

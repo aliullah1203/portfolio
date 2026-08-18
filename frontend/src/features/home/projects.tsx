@@ -5,6 +5,8 @@ import { Card } from '@/shared/ui/card';
 import { ArrowRight, Github } from 'lucide-react';
 import { Project } from '@/shared/types';
 
+const API_BASE = 'https://portfolio-6i9r.onrender.com';
+
 export function FeaturedProjectsSection() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -13,7 +15,7 @@ export function FeaturedProjectsSection() {
   useEffect(() => {
     const fetchFeaturedProjects = async () => {
       try {
-        const response = await fetch(`/api/projects/featured`);
+        const response = await fetch(`${API_BASE}/api/projects/featured`);
         if (!response.ok) {
           throw new Error('Failed to load featured projects');
         }
