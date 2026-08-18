@@ -1,16 +1,9 @@
 import axios from 'axios';
 
 function getApiBaseUrl(): string {
-  const rawEnv = process.env.NEXT_PUBLIC_API_URL;
+  const rawEnv = process.env.NEXT_PUBLIC_API_PROXY;
 
-  // In development prefer the explicit env or localhost default.
-  if (process.env.NODE_ENV === 'development') {
-    const envUrl = rawEnv || 'http://localhost:8080';
-    return envUrl.replace(/\/$/, '');
-  }
-
-  // In production, never use a localhost or plain http URL (prevents mixed-content).
-  if (!rawEnv || rawEnv.includes('localhost') || rawEnv.startsWith('http://')) {
+  if (!rawEnv) {
     return 'https://portfolio-6i9r.onrender.com';
   }
 
