@@ -91,189 +91,217 @@ export default function CreateBlogPage() {
   }
 
   return (
-    <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-6 lg:px-8">
+    <div className="p-6 md:p-8 lg:p-10">
+      {/* Header */}
       <div className="mb-8 flex items-center gap-4">
         <Link href="/admin/blogs" className="text-slate-400 hover:text-white">
           ← Back
         </Link>
-        <h1 className="text-4xl font-semibold text-white">Create Blog</h1>
+        <h1 className="text-2xl font-semibold text-white">Create Blog Post</h1>
       </div>
 
-      <div className="max-w-5xl rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 sm:p-10">
+      <div className="max-w-3xl">
         <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="grid gap-8 lg:grid-cols-[1.7fr_0.9fr]">
-            <div className="space-y-6">
+          {/* Basics Section */}
+          <div className="border border-white/10 rounded-lg bg-slate-900/30 p-6">
+            <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-6">Basics</h2>
+            <div className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-slate-200">Title *</label>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Title *</label>
                 <input
                   type="text"
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
                   required
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-200">Slug *</label>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Slug *</label>
                 <input
                   type="text"
                   name="slug"
                   value={formData.slug}
                   onChange={handleChange}
                   required
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
                 />
               </div>
+            </div>
+          </div>
 
+          {/* Content Section */}
+          <div className="border border-white/10 rounded-lg bg-slate-900/30 p-6">
+            <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-6">Content</h2>
+            <div className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-slate-200">Excerpt *</label>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Excerpt *</label>
                 <textarea
                   name="excerpt"
                   value={formData.excerpt}
                   onChange={handleChange}
                   rows={3}
                   required
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-200">Content (Rich Text/Markdown) *</label>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Content (Markdown) *</label>
                 <textarea
                   name="content"
                   value={formData.content}
                   onChange={handleChange}
-                  rows={12}
+                  rows={10}
                   required
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 font-mono text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 font-mono text-xs text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
                   placeholder="Write your article content here..."
                 />
               </div>
-            </div>
 
-            <div className="space-y-6 rounded-2xl border border-white/10 bg-slate-950/40 p-5">
               <div>
-                <label className="block text-sm font-semibold text-slate-200">Cover Image</label>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Cover Image</label>
                 <input
                   type="text"
                   name="coverImage"
                   value={formData.coverImage}
                   onChange={handleChange}
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                  placeholder="https://example.com/image.jpg"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
                 />
               </div>
+            </div>
+          </div>
 
+          {/* Meta Section */}
+          <div className="border border-white/10 rounded-lg bg-slate-900/30 p-6">
+            <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-6">Meta</h2>
+            <div className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-slate-200">Category</label>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Meta Title</label>
                 <input
                   type="text"
-                  name="category"
-                  value={formData.category}
+                  name="metaTitle"
+                  value={formData.metaTitle}
                   onChange={handleChange}
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-200">Tags</label>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Meta Description</label>
+                <textarea
+                  name="metaDescription"
+                  value={formData.metaDescription}
+                  onChange={handleChange}
+                  rows={3}
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Publishing Section */}
+          <div className="border border-white/10 rounded-lg bg-slate-900/30 p-6">
+            <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-6">Publishing</h2>
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Status</label>
+                  <select
+                    name="status"
+                    value={formData.status}
+                    onChange={handleChange}
+                    className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                  >
+                    <option value="draft">Draft</option>
+                    <option value="published">Published</option>
+                    <option value="archived">Archived</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Category</label>
+                  <input
+                    type="text"
+                    name="category"
+                    value={formData.category}
+                    onChange={handleChange}
+                    className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Tags</label>
                 <input
                   type="text"
                   name="tags"
                   value={formData.tags}
                   onChange={handleChange}
                   placeholder="react, nextjs, backend"
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-200">Meta Title</label>
-                <input
-                  type="text"
-                  name="metaTitle"
-                  value={formData.metaTitle}
-                  onChange={handleChange}
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-slate-200">Meta Description</label>
-                <textarea
-                  name="metaDescription"
-                  value={formData.metaDescription}
-                  onChange={handleChange}
-                  rows={3}
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-slate-200">Status</label>
-                <select
-                  name="status"
-                  value={formData.status}
-                  onChange={handleChange}
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
-                >
-                  <option value="draft">Draft</option>
-                  <option value="published">Published</option>
-                  <option value="archived">Archived</option>
-                </select>
-              </div>
-
-              <div className="space-y-3">
-                <label className="flex items-center gap-3 rounded-lg border border-white/10 bg-slate-900/70 px-3 py-3 text-sm text-slate-200">
-                  <input
-                    type="checkbox"
-                    name="featured"
-                    checked={formData.featured}
-                    onChange={handleChange}
-                    className="h-4 w-4 rounded border-white/20 bg-slate-950"
-                  />
-                  Featured Post
-                </label>
-
-                <label className="flex items-center gap-3 rounded-lg border border-white/10 bg-slate-900/70 px-3 py-3 text-sm text-slate-200">
-                  <input
-                    type="checkbox"
-                    name="allowComments"
-                    checked={formData.allowComments}
-                    onChange={handleChange}
-                    className="h-4 w-4 rounded border-white/20 bg-slate-950"
-                  />
-                  Allow Comments
-                </label>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-slate-200">Published At</label>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Published At</label>
                 <input
                   type="datetime-local"
                   name="publishedAt"
                   value={formData.publishedAt.slice(0, 16)}
                   onChange={handleChange}
-                  className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
                 />
+              </div>
+
+              <div className="space-y-2 pt-2">
+                <label className="flex items-center gap-3 text-sm text-slate-300 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="featured"
+                    checked={formData.featured}
+                    onChange={handleChange}
+                    className="w-4 h-4 rounded border-white/20 bg-slate-950"
+                  />
+                  Featured Post
+                </label>
+
+                <label className="flex items-center gap-3 text-sm text-slate-300 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="allowComments"
+                    checked={formData.allowComments}
+                    onChange={handleChange}
+                    className="w-4 h-4 rounded border-white/20 bg-slate-950"
+                  />
+                  Allow Comments
+                </label>
               </div>
             </div>
           </div>
 
-          {error && <div className="rounded-lg bg-red-500/20 p-4 text-red-300">{error}</div>}
+          {/* Error */}
+          {error && (
+            <div className="rounded-md bg-red-500/20 border border-red-500/30 p-4 text-sm text-red-300">
+              {error}
+            </div>
+          )}
 
-          <div className="flex gap-4">
+          {/* Actions */}
+          <div className="flex gap-3 pt-4 border-t border-white/10">
             <button
               type="submit"
               disabled={saving}
-              className="flex-1 rounded-lg bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+              className="px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
             >
               {saving ? 'Creating...' : 'Create Blog'}
             </button>
             <Link
               href="/admin/blogs"
-              className="flex-1 rounded-lg border border-white/10 px-6 py-3 text-center font-medium text-white hover:bg-slate-800 transition-colors"
+              className="px-4 py-2 rounded-md border border-white/10 text-white text-sm font-medium hover:bg-slate-800/30 transition-colors"
             >
               Cancel
             </Link>

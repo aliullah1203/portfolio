@@ -83,132 +83,157 @@ export default function CreateProjectPage() {
   }
 
   return (
-    <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-6 lg:px-8">
+    <div className="p-6 md:p-8 lg:p-10">
+      {/* Header */}
       <div className="mb-8 flex items-center gap-4">
         <Link href="/admin/projects" className="text-slate-400 hover:text-white">
           ← Back
         </Link>
-        <h1 className="text-4xl font-semibold text-white">Create Project</h1>
+        <h1 className="text-2xl font-semibold text-white">Create Project</h1>
       </div>
 
-      <div className="max-w-2xl rounded-[2rem] border border-white/10 bg-slate-900/70 p-10">
+      <div className="max-w-3xl">
         <form onSubmit={handleSubmit} className="space-y-8">
-          {/* Title */}
-          <div>
-            <label className="block text-sm font-semibold text-slate-200">Title</label>
-            <input
-              type="text"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              required
-              className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
-            />
+          {/* Basics Section */}
+          <div className="border border-white/10 rounded-lg bg-slate-900/30 p-6">
+            <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-6">Basics</h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Title *</label>
+                <input
+                  type="text"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Slug *</label>
+                <input
+                  type="text"
+                  name="slug"
+                  value={formData.slug}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Slug */}
-          <div>
-            <label className="block text-sm font-semibold text-slate-200">Slug</label>
-            <input
-              type="text"
-              name="slug"
-              value={formData.slug}
-              onChange={handleChange}
-              required
-              className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
-            />
+          {/* Content Section */}
+          <div className="border border-white/10 rounded-lg bg-slate-900/30 p-6">
+            <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-6">Content</h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Description *</label>
+                <textarea
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  rows={5}
+                  required
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Thumbnail URL *</label>
+                <input
+                  type="url"
+                  name="thumbnail"
+                  value={formData.thumbnail}
+                  onChange={handleChange}
+                  required
+                  placeholder="https://example.com/image.jpg"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Technologies (comma separated) *</label>
+                <input
+                  type="text"
+                  name="technologies"
+                  value={formData.technologies}
+                  onChange={handleChange}
+                  required
+                  placeholder="React, TypeScript, Node.js"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Description */}
-          <div>
-            <label className="block text-sm font-semibold text-slate-200">Description</label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              rows={5}
-              required
-              className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
-            />
+          {/* Links Section */}
+          <div className="border border-white/10 rounded-lg bg-slate-900/30 p-6">
+            <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-6">Links</h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Live URL</label>
+                <input
+                  type="url"
+                  name="liveUrl"
+                  value={formData.liveUrl}
+                  onChange={handleChange}
+                  placeholder="https://example.com"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">GitHub URL</label>
+                <input
+                  type="url"
+                  name="githubUrl"
+                  value={formData.githubUrl}
+                  onChange={handleChange}
+                  placeholder="https://github.com/username/repo"
+                  className="w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-sm text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Thumbnail */}
-          <div>
-            <label className="block text-sm font-semibold text-slate-200">Thumbnail URL</label>
-            <input
-              type="url"
-              name="thumbnail"
-              value={formData.thumbnail}
-              onChange={handleChange}
-              required
-              className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
-            />
+          {/* Publishing Section */}
+          <div className="border border-white/10 rounded-lg bg-slate-900/30 p-6">
+            <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-6">Publishing</h2>
+            <div>
+              <label className="flex items-center gap-3 text-sm text-slate-300 cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="featured"
+                  checked={formData.featured as unknown as boolean}
+                  onChange={handleChange}
+                  className="w-4 h-4 rounded border-white/20 bg-slate-950"
+                />
+                Featured Project
+              </label>
+            </div>
           </div>
 
-          {/* Technologies */}
-          <div>
-            <label className="block text-sm font-semibold text-slate-200">Technologies (comma separated)</label>
-            <input
-              type="text"
-              name="technologies"
-              value={formData.technologies}
-              onChange={handleChange}
-              required
-              className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
-            />
-          </div>
+          {/* Error */}
+          {error && (
+            <div className="rounded-md bg-red-500/20 border border-red-500/30 p-4 text-sm text-red-300">
+              {error}
+            </div>
+          )}
 
-          {/* Live URL */}
-          <div>
-            <label className="block text-sm font-semibold text-slate-200">Live URL</label>
-            <input
-              type="url"
-              name="liveUrl"
-              value={formData.liveUrl}
-              onChange={handleChange}
-              className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
-            />
-          </div>
-
-          {/* GitHub URL */}
-          <div>
-            <label className="block text-sm font-semibold text-slate-200">GitHub URL</label>
-            <input
-              type="url"
-              name="githubUrl"
-              value={formData.githubUrl}
-              onChange={handleChange}
-              className="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20"
-            />
-          </div>
-
-          {/* Featured */}
-          <div className="flex items-center gap-3">
-            <input
-              type="checkbox"
-              name="featured"
-              checked={formData.featured as unknown as boolean}
-              onChange={handleChange}
-              className="h-4 w-4 rounded border-white/10 bg-slate-950/80 text-blue-600 focus:ring-2 focus:ring-blue-500/20"
-            />
-            <label className="text-sm font-semibold text-slate-200">Mark as featured</label>
-          </div>
-
-          {/* Error Message */}
-          {error && <div className="rounded-lg bg-red-500/20 p-4 text-red-300">{error}</div>}
-
-          {/* Submit Button */}
-          <div className="flex gap-4">
+          {/* Actions */}
+          <div className="flex gap-3 pt-4 border-t border-white/10">
             <button
               type="submit"
               disabled={saving}
-              className="flex-1 rounded-lg bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+              className="px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
             >
               {saving ? 'Creating...' : 'Create Project'}
             </button>
             <Link
               href="/admin/projects"
-              className="flex-1 rounded-lg border border-white/10 px-6 py-3 text-center font-medium text-white hover:bg-slate-800 transition-colors"
+              className="px-4 py-2 rounded-md border border-white/10 text-white text-sm font-medium hover:bg-slate-800/30 transition-colors"
             >
               Cancel
             </Link>
