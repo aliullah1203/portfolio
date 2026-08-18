@@ -5,7 +5,7 @@ const testimonials = [
     role: 'Product Lead',
   },
   {
-    quote: 'Working with Ali was a pleasure. He built clean, maintainable applications with thoughtful interfaces, and he communicates well across the team.',
+    quote: 'Working with Ali was a pleasure. He built clean, secure and maintainable applications with thoughtful interfaces, and he communicates well across the team.',
     author: 'Morgan Lee',
     role: 'Engineering Manager',
   },

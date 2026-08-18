@@ -39,7 +39,7 @@ export function AboutSection() {
           <p className="text-sm font-semibold text-accent-400 uppercase tracking-wide">About</p>
           <h2 className="text-4xl font-bold text-white sm:text-5xl">Building modern web experiences</h2>
           <p className="max-w-2xl text-base leading-relaxed text-neutral-400">
-            I'm a Junior Software Engineer focused on delivering performant, user-centric applications with Go, Next.js, GraphQL, PostgreSQL, and MongoDB. I enjoy solving complex problems and shipping polished end-to-end experiences.
+            I'm a Software Engineer focused on building performant, user-centric applications with Go, Next.js, TypeScript, PostgreSQL, and modern cloud-native tooling. I enjoy solving complex product problems and shipping polished end-to-end experiences.
           </p>
           <Button as="a" href="#projects" size="lg">
             View My Work

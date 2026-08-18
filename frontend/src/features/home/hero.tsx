@@ -42,7 +42,7 @@ export function HeroSection() {
               Hi, I'm Ali
             </h1>
             <p className="text-xl text-neutral-400 leading-relaxed max-w-2xl">
-              Junior Software Engineer building scalable web applications with Go, TypeScript, and modern cloud-native technologies.
+              Software Engineer building scalable web applications with Go, TypeScript, and modern cloud-native technologies.
             </p>
           </motion.div>
 

@@ -8,8 +8,8 @@ export default function AdminProfilePage() {
   const [formData, setFormData] = useState({
     fullName: 'Ali Ullah',
     email: 'ali@example.com',
-    title: 'Junior Software Engineer',
-    bio: 'A passionate software engineer specializing in Go, TypeScript, and modern web technologies.',
+    title: 'Software Engineer',
+    bio: 'A software engineer focused on building reliable backend systems, modern web apps, and scalable product experiences with Go, TypeScript, and cloud-native technologies.',
     location: 'Your Location',
     phone: '+1 (555) 000-0000',
   });

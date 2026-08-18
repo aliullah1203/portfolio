@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'Ali Ullah',
-  description: 'Junior Software Engineer specializing in Go, TypeScript, Next.js, GraphQL, PostgreSQL, MongoDB, and scalable web applications.',
+  description: 'Software Engineer specializing in Go, TypeScript, React.js, Next.js, Node.js, Express.js, GraphQL, PostgreSQL, MongoDB, and scalable web applications.',
   email: 'aliullah0301@gmail.com',
   phone: '+8801648881803',
   location: 'Dhaka, Bangladesh',
