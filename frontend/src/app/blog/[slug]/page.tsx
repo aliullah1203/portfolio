@@ -206,6 +206,10 @@ export default function BlogPostPage() {
               <span>{post.readTime}</span>
             </div>
 
+            <div className="prose prose-invert max-w-none text-slate-300">
+              <p className="whitespace-pre-line text-lg leading-8">{post.content}</p>
+            </div>
+
             <div className="rounded-[1.5rem] border border-white/10 bg-slate-950/50 p-5">
               <div className="flex flex-wrap items-center gap-3">
                 {reactionOptions.map((reaction) => {
@@ -228,10 +232,6 @@ export default function BlogPostPage() {
                   );
                 })}
               </div>
-            </div>
-
-            <div className="prose prose-invert max-w-none text-slate-300">
-              <p className="whitespace-pre-line text-lg leading-8">{post.content}</p>
             </div>
 
             <div className="rounded-[1.5rem] border border-white/10 bg-slate-950/50 p-5">
