@@ -14,6 +14,8 @@ func TestIsAllowedOrigin(t *testing.T) {
 		{name: "vercel with trailing slash", origin: "https://portfolio-6ghej4rri-aliullah.vercel.app/", want: true},
 		{name: "workers", origin: "https://portfolio.aliullah0301.workers.dev", want: true},
 		{name: "workers with trailing slash", origin: "https://portfolio.aliullah0301.workers.dev/", want: true},
+		{name: "custom production domain", origin: "https://aliullah.dpdns.org", want: true},
+		{name: "custom production domain with trailing slash", origin: "https://aliullah.dpdns.org/", want: true},
 		{name: "blocked", origin: "https://example.com", want: false},
 	}
 

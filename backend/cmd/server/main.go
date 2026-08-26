@@ -35,6 +35,7 @@ func isAllowedOrigin(origin string) bool {
 		"http://0.0.0.0:3002":                             true,
 		"https://portfolio-6ghej4rri-aliullah.vercel.app": true,
 		"https://portfolio.aliullah0301.workers.dev":      true,
+		"https://aliullah.dpdns.org":                      true,
 	}
 
 	if allowedOrigins[normalizedOrigin] {
