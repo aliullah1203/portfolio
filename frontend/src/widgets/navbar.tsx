@@ -35,7 +35,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button variant="secondary" size="sm" as="a" href="/aliullah.pdf" download="aliullah_cv.pdf">
+          <Button variant="secondary" size="sm" as="a" href="/aliullah.pdf" download="aliullah.pdf">
             Resume
           </Button>
         </div>
