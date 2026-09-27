@@ -40,6 +40,9 @@ logs
 # VSCode
 .vscode
 
+# Cloudflare OpenNext build output
+.open-next/
+
 # OS
 .DS_Store
 
