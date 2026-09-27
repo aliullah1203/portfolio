@@ -62,18 +62,21 @@ export function FeaturedProjectsSection() {
           <div className="grid gap-6 lg:grid-cols-3">
             {projects.map((project) => (
               <Card key={project.id} className="group overflow-hidden p-0">
-                <a href={`/project/${project.slug}`} className="block h-full">
-                  <div className="relative overflow-hidden bg-neutral-800 h-56">
-                    <img
-                      src={project.thumbnail || '/project-3.jpg'}
-                      alt={project.title}
-                      className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                    />
-                  </div>
+                <div className="block h-full">
+                  <a href={`/project/${project.slug}`} className="block">
+                    <div className="relative overflow-hidden bg-neutral-800 h-56">
+                      <img
+                        src={project.thumbnail || '/project-3.jpg'}
+                        alt={project.title}
+                        className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                  </a>
+
                   <div className="space-y-4 p-5">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-accent-400 transition">
+                    <a href={`/project/${project.slug}`} className="block text-lg font-semibold text-white transition hover:text-accent-400">
                       {project.title}
-                    </h3>
+                    </a>
                     <p className="text-sm leading-relaxed text-neutral-400">
                       {project.description}
                     </p>
@@ -117,7 +120,7 @@ export function FeaturedProjectsSection() {
                       )}
                     </div>
                   </div>
-                </a>
+                </div>
               </Card>
             ))}
           </div>
