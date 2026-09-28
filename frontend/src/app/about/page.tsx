@@ -12,7 +12,7 @@ export default function AboutPage() {
           <div className="space-y-8">
             <div>
               <p className="text-sm uppercase tracking-[0.35em] text-brand-300">About</p>
-              <h1 className="mt-4 text-5xl font-semibold text-white">I'm Ali Ullah, a Junior Software Engineer.</h1>
+              <h1 className="mt-4 text-5xl font-semibold text-white">I'm Ali Ullah, Software Engineer at Deep Data Labs.</h1>
             </div>
             <p className="max-w-3xl text-lg leading-8 text-slate-300">
               I build scalable web applications using Go, TypeScript, Next.js, GraphQL, PostgreSQL, and MongoDB. My focus is on creating polished product experiences that perform reliably in production.
